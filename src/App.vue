@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <v-header></v-header>
+    <v-header :seller="seller"></v-header>
     <div class="tab border-1px">
       <div class="tab-item">
         <router-link to="/goods">商品</router-link>
@@ -17,8 +17,33 @@
 </template>
 <script>
 import header from '@/components/header/header.vue';
+import { getSeller } from '@/api/index.js'
 export default {
   name: 'App',
+  data(){
+    return{
+      seller:{}
+    }
+  },
+  // created(){
+
+  //   getSeller().then((seller) =>{
+  //   this.seller=seller
+  //   })
+
+  // },
+  created(){
+    this. _getSeller()
+  },
+  methods: {
+    _getSeller(){
+
+      getSeller().then((seller) =>{
+          this.seller=seller
+          })
+
+    }
+  },
   components: {
     'v-header': header
   }
@@ -28,8 +53,6 @@ export default {
 </script>
 <style lang="less">
   @import "assets/less/base/index";
-
-
 #app {
   .tab{
     display: flex;
