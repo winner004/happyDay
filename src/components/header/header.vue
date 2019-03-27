@@ -35,7 +35,7 @@
           <div class="detail-main">
             <h1 class="name">{{seller.name}}</h1>
             <div class="star-wrapper">
-              <!--<star :size="48" :score="seller.score"></star>-->
+              <star :size="48" :score="seller.score"></star>
             </div>
             <div class="title">
               <div class="line"></div>
@@ -66,7 +66,7 @@
   </div>
 </template>
 <script>
-
+  import star from '../../components/star/star';
 
   export default {
     name: 'VHeader',
@@ -90,6 +90,9 @@
     },
     created() {
       this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
+    },
+    components: {
+      star
     }
   }
 </script>

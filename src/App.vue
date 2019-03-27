@@ -18,11 +18,13 @@
 <script>
 import header from '@/components/header/header.vue';
 import { getSeller } from '@/api/index.js'
+
 export default {
   name: 'App',
   data(){
     return{
-      seller:{}
+      seller:{},
+
     }
   },
   // created(){
@@ -41,7 +43,6 @@ export default {
       getSeller().then((seller) =>{
           this.seller=seller
           })
-
     }
   },
   components: {
